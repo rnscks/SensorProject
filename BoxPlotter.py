@@ -13,10 +13,6 @@ class BoxPlotter:
         self.data_fusion.DataLoad()
         my_data = self.data_fusion.ExResultDataSet
 
-        # Remove data above 30
-        my_data = my_data[my_data["Set Number"] >= 140]
-        my_data = my_data[160 >= my_data["Set Number"]]
-
         sns.boxplot(x="Set Number", y="Celsius", data=my_data, hue="Sensor")
         plt.show()
 
