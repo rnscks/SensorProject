@@ -5,7 +5,7 @@ from scipy.special import erf
 
 # Define the integrand function
 def integrand(p, c, t):
-    return np.exp(-p - c**2 * p**2 * t) * np.cos(p*0)  # x is set to 0
+    return np.exp(-p - c**2 * p**2 * t) * np.cos(p*0) 
 
 # Define a function to perform the integral over p from 0 to infinity
 def integral_u(c, t):
@@ -14,6 +14,7 @@ def integral_u(c, t):
 
 # Define a range of c values and t values
 c_values = np.linspace(1, 10, 10)
+
 t_values = np.linspace(0.01, 5, 100)
 
 # Initialize a plot
