@@ -39,7 +39,7 @@ class Plotter(ABC):
         plt.show()
         return True
 
-    def SetTitel(self, title: str):
+    def SetTitle(self, title: str):
         """
         플롯의 제목을 설정하는 메서드입니다.
         
