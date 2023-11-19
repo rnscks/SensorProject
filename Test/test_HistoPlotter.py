@@ -10,14 +10,10 @@ class TestHistoPlotter(unittest.TestCase):
         return super().setUp()
 
     def test_CallShowPlot(self):
-        # Create a sample dataframe
         data = pd.DataFrame({'x': [1, 2, 3, 4, 5], 'y': [10, 20, 30, 40, 50]})
-        # Mock the super().ShowPlot method
+        
         with patch.object(HistoPlotter, 'ShowPlot') as mock_show_plot:
-            # Call the ShowPlot method
             self.plotter.ShowPlot('x', 'y', data)
-
-            # Assert that the super().ShowPlot method was called with the correct arguments
             mock_show_plot.assert_called_with('x', 'y', data)
 
     def test_ShowPlotwithHue(self):
