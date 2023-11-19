@@ -1,6 +1,6 @@
 import util
 import unittest
-from Drawer import Drawer
+from Drawers.Drawer import Drawer
 
 class TestDrawer(unittest.TestCase):
     def setUp(self):

@@ -1,5 +1,5 @@
 import unittest
-from DataFusion import DataFusion
+from Drawers.DataFusion import DataFusion
 
 
 class TestDataFusion(unittest.TestCase):
@@ -14,10 +14,8 @@ class TestDataFusion(unittest.TestCase):
         df = DataFusion()
         
         # call the DataLoad method
-        df.DataLoad()
+        exResultDataSet = df.GetLoadedData()
         
         # check that the resulting dataset is not empty
-        self.assertFalse(df.ExResultDataSet.empty)
-        
-        df.ExResultDataSet.to_excel("test.xlsx")
+        self.assertFalse(exResultDataSet.empty)
 

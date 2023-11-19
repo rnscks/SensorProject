@@ -25,12 +25,14 @@ class TestBoxPlotter(unittest.TestCase):
     
     def test_ShowPlotwithHue(self):
         df = DataFusion()
-        df.DataLoad()
-        df.ExResultDataSet = df.ExResultDataSet[df.ExResultDataSet["Set Number"] > 110]
-        df.ExResultDataSet = df.ExResultDataSet[120 > df.ExResultDataSet["Set Number"]] 
+        
+        exResultDataSet = df.GetLoadedData()
+        exResultDataSet = exResultDataSet[exResultDataSet["Set Number"] > 110]
+        exResultDataSet = exResultDataSet[120 > exResultDataSet["Set Number"]]
+                        
 
         # Call the ShowPlot method
-        result = self.plotter.ShowPlot(x = "Set Number", y="Celsius", data = df.ExResultDataSet, hue="Sensor")      
+        result = self.plotter.ShowPlot(x = "Set Number", y="Celsius", data = exResultDataSet, hue="Sensor")      
 
         # Assert that the result is None
         self.assertTrue(result)

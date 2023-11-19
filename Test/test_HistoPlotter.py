@@ -18,8 +18,8 @@ class TestHistoPlotter(unittest.TestCase):
 
     def test_ShowPlotwithHue(self):
         df = DataFusion()
-        df.DataLoad()
-        result = self.plotter.ShowPlot(x="Celsius", data=df.ExResultDataSet, hue="Sensor")   
+        exResultDataSet = df.GetLoadedData()
+        result = self.plotter.ShowPlot(x="Celsius", data=exResultDataSet, hue="Sensor")   
         self.assertTrue(result)
 
         

@@ -11,25 +11,28 @@ from DataFilter import DataFilter
 
 class DataFusion:
     def __init__(self) -> None:
-        self.ExResultDataSet: pd.DataFrame = pd.DataFrame()
-        self._FileReader: FileReader = FileReader()
+
         pass
     
-    def DataLoad(self) -> None:
+    def GetLoadedData(self) -> None:
+        exResultDataSet: pd.DataFrame = pd.DataFrame()
+        fileReader: FileReader = FileReader()
+        
         for _ in range(MAX_FILE_NUMBER):
-            fileExReusltDataset = self._FileReader.ReadFile()
+            fileExReusltDataset = fileReader.ReadFile()
             fileExReusltDataset = DataFilter(fileExReusltDataset).Filtering()
-            self.ExResultDataSet = pd.concat([fileExReusltDataset, self.ExResultDataSet])
+            exResultDataSet = pd.concat([fileExReusltDataset, exResultDataSet])
+        return exResultDataSet
             
             
                 
 if (__name__ =="__main__"):
     df = DataFusion()
-    df.DataLoad()
+    loadedDataFrame = df.GetLoadedData()
     hp =  HistoPlotter()    
     
     hp.SetTitel("Histogram")
     hp.SetXlabel(xlabel="Celsius")
     hp.SetYlabel(ylabel="Frequency")
 
-    hp.ShowPlot(x = "Celsius", data = df.ExResultDataSet, hue="Sensor")   
+    hp.ShowPlot(x = "Celsius", data = loadedDataFrame, hue="Sensor")   
