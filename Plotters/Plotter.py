@@ -18,7 +18,7 @@ class Plotter(ABC):
         """
         sns.set()
         sns.set_style("whitegrid")
-        plt.figure(figsize=(10, 6))       
+        plt.figure(figsize=(10, 8))       
         plt.rcParams['font.weight'] = 'bold'
         plt.rcParams['axes.labelweight'] = 'bold'
         sns.set_palette("dark")
@@ -73,6 +73,6 @@ class Plotter(ABC):
         Returns:
             None
         """
-        plt.xlabel(ylabel=ylabel, fontsize=28, weight='bold')
+        plt.ylabel(ylabel=ylabel, fontsize=28, weight='bold')
 
 

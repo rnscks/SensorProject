@@ -1,5 +1,6 @@
 import pandas as pd
 from FileReader import FileReader
+from Plotters.HistoPlotter import HistoPlotter
 
 
 # max file number is 16 
@@ -42,4 +43,13 @@ class DataFusion:
             
             
                 
-            
+if (__name__ =="__main__"):
+    df = DataFusion()
+    df.DataLoad()
+    hp =  HistoPlotter()    
+    
+    hp.SetTitel("Histogram")
+    hp.SetXlabel(xlabel="Celsius")
+    hp.SetYlabel(ylabel="Frequency")
+
+    hp.ShowPlot(x = "Celsius", data = df.ExResultDataSet, hue="Sensor")   
