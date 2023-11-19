@@ -1,6 +1,7 @@
-from BoxPlotter import BoxPlotter
-from LinePlotter import LinePlotter
-from HistoPlotter import HistoPlotter
+import util
+from Plotters.BoxPlotter import BoxPlotter
+from Plotters.LinePlotter import LinePlotter
+from Plotters.HistoPlotter import HistoPlotter
 
 class PlotterFactory:
     def CreatePlotter(self, plotterType):

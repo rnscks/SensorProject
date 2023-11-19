@@ -4,23 +4,23 @@ import unittest
 from Plotters.PlotterFactory import PlotterFactory
 from Plotters.BoxPlotter import BoxPlotter
 from Plotters.LinePlotter import LinePlotter
-from Plotters.HistoPlotter import HistPlotter
+from Plotters.HistoPlotter import HistoPlotter
 
 class TestPlotterFactory(unittest.TestCase):
-    def test_create_plotter_box(self):
+    def test_CreateBoxPlotter(self):
         factory = PlotterFactory()
         plotter = factory.CreatePlotter("box")
         self.assertIsInstance(plotter, BoxPlotter)
 
-    def test_create_plotter_line(self):
+    def test_CreateLinePlotter(self):
         factory = PlotterFactory()
         plotter = factory.CreatePlotter("line")
         self.assertIsInstance(plotter, LinePlotter)
 
-    def test_create_plotter_histo(self):
+    def test_CreateHistoPlotter(self):
         factory = PlotterFactory()
         plotter = factory.CreatePlotter("histo")
-        self.assertIsInstance(plotter, HistPlotter)
+        self.assertIsInstance(plotter, HistoPlotter)
 
     def test_create_plotter_unknown(self):
         factory = PlotterFactory()

@@ -26,7 +26,7 @@ class Plotter(ABC):
         plt.tick_params(labelsize=23)
 
     @abstractmethod
-    def ShowPlot(self, x: str, y: str, data: pd.DataFrame, hue: Optional[str] = None) -> bool:
+    def ShowPlot(self, x: str, y: str, data: pd.DataFrame, hue: Optional[str] = None) -> Optional[bool]:
         """
         데이터를 기반으로 Plot을 그리는 메서드입니다.
         
