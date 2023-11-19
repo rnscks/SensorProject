@@ -3,10 +3,11 @@ import seaborn as sns
 from collections import Counter
 import matplotlib.pyplot as plt
 
-
-
 class BoxPlotter:
     def __init__(self) -> None:
+        """
+        Initializes the BoxPlotter class.
+        """
         self.data_fusion = DataFusion()
 
     def boxplot(self) -> None:
