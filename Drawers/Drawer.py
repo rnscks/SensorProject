@@ -1,3 +1,6 @@
+import util
+
+import pandas as pd 
 from Plotters.PlotterFactory import PlotterFactory
 from DataFusion import DataFusion
 
@@ -17,17 +20,21 @@ class Drawer:
     def DrawBoxPlot(self, right_range:int = 0, left_range:int = 10):
         df = DataFusion()
         df.DataLoad()
+
         df.ExResultDataSet = df.ExResultDataSet[df.ExResultDataSet["Set Number"] > right_range]
         df.ExResultDataSet = df.ExResultDataSet[left_range > df.ExResultDataSet["Set Number"]]
+        df.ExResultDataSet['Sensor'] = pd.Categorical(df.ExResultDataSet['Sensor'], categories=['DS18', 'DHT11'], ordered=True)   
+        
         boxPlotter = PlotterFactory().CreatePlotter("box")
-        boxPlotter.SetTitle("Box Plot of Sensor Data")
+        boxPlotter.SetTitle("Box Plot of Temperature Data")
         boxPlotter.SetXlabel("Time Step")
         boxPlotter.SetYlabel("Celsius")
         boxPlotter.ShowPlot(x = "Set Number", y="Celsius", data = df.ExResultDataSet, hue="Sensor")
 
 
 
+
 if (__name__ =="__main__"): 
     #Drawer().DrawHisto()
-    #Drawer().DrawBoxPlot(110, 120)  
+    Drawer().DrawBoxPlot(110, 120)  
     pass

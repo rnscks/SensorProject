@@ -1,3 +1,4 @@
+
 import pandas as pd
 from typing import Optional
 from FileRouter import FileRouter
@@ -5,19 +6,6 @@ from FileRouter import FileRouter
 
 
 class FileReader:
-    """
-    A class used to read an excel file and return its contents as a pandas DataFrame.
-    
-    Attributes
-    ----------
-    None
-    
-    Methods
-    -------
-    ReadFile() -> Optional[pd.DataFrame]:
-        Reads an excel file and returns its contents as a pandas DataFrame.
-        Returns None if the file path is invalid.
-    """
     def __init__(self) -> None:
         self.file_router = FileRouter("ExprimentResult")
         pass

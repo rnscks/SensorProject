@@ -1,6 +1,9 @@
+import util
+
 import unittest
 import pandas as pd
 from Plotters.BoxPlotter import BoxPlotter
+from Drawers.DataFusion import DataFusion
 import unittest
 from unittest.mock import patch
 
@@ -10,7 +13,6 @@ class TestBoxPlotter(unittest.TestCase):
         return super().setUp()
     
     def test_CallShowPlot(self):
-        # Create a sample dataframe
         data = pd.DataFrame({'x': [1, 2, 3, 4, 5], 'y': [10, 20, 30, 40, 50]})
         # Mock the super().ShowPlot method
         with patch.object(BoxPlotter, 'ShowPlot') as mock_show_plot:
@@ -21,22 +23,14 @@ class TestBoxPlotter(unittest.TestCase):
             mock_show_plot.assert_called_with('x', 'y', data)
 
     
-    def test_ShowPlot(self):
-        # Create sample data
-        data = pd.DataFrame({'x': [1, 2, 3, 4, 5], 'y': [10, 20, 30, 40, 50]})
+    def test_ShowPlotwithHue(self):
+        df = DataFusion()
+        df.DataLoad()
+        df.ExResultDataSet = df.ExResultDataSet[df.ExResultDataSet["Set Number"] > 110]
+        df.ExResultDataSet = df.ExResultDataSet[120 > df.ExResultDataSet["Set Number"]] 
 
         # Call the ShowPlot method
-        result = self.plotter.ShowPlot('x', 'y', data)
-
-        # Assert that the result is None
-        self.assertTrue(result)
-
-    def test_ShowPlotwithHue(self):
-        # Create sample data
-        data = pd.DataFrame({'x': [1, 2, 3, 4, 5], 'y': [10, 20, 30, 40, 50], 'hue': ['A', 'B', 'A', 'B', 'A']})
-
-        # Call the ShowPlot method with hue
-        result = self.plotter.ShowPlot('x', 'y', data, hue='hue')
+        result = self.plotter.ShowPlot(x = "Set Number", y="Celsius", data = df.ExResultDataSet, hue="Sensor")      
 
         # Assert that the result is None
         self.assertTrue(result)
