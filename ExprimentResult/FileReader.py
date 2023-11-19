@@ -1,4 +1,4 @@
-
+import util
 import pandas as pd
 from typing import Optional
 from FileRouter import FileRouter
@@ -7,7 +7,7 @@ from FileRouter import FileRouter
 
 class FileReader:
     def __init__(self) -> None:
-        self.file_router = FileRouter("ExprimentResult")
+        self.file_router = FileRouter()
         pass
     
     def ReadFile(self) -> Optional[pd.DataFrame]:

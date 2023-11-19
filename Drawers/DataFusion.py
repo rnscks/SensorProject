@@ -1,6 +1,6 @@
 import util
 import pandas as pd
-from FileReader import FileReader    
+from ExprimentResult.FileReader import FileReader    
 from Plotters.HistoPlotter import HistoPlotter
 
 

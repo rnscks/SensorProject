@@ -4,7 +4,7 @@ def IsError(data1, data2, data3, data4):
     return (data1 == ERROR or data2 == ERROR or data3 == ERROR or data4 == ERROR)
 
 from Paser import Paser
-from DataSet import DataSet
+from AriduinoConnection.DataSet import DataSet
 from PlotDrawer import PlotDrawer
 import pandas as pd
 import serial

@@ -1,4 +1,4 @@
-from DataSet import DataSet
+from AriduinoConnection.DataSet import DataSet
 
 import pandas as pd
 import seaborn as sns

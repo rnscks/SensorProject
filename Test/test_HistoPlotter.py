@@ -2,6 +2,7 @@ import unittest
 import pandas as pd
 from unittest.mock import patch
 from Plotters.HistoPlotter import HistoPlotter
+from Drawers.DataFusion import DataFusion
 
 class TestHistoPlotter(unittest.TestCase):
     def setUp(self):
@@ -20,11 +21,9 @@ class TestHistoPlotter(unittest.TestCase):
             mock_show_plot.assert_called_with('x', 'y', data)
 
     def test_ShowPlotwithHue(self):
-        x = "x"
-        y = "y"
-        hue = "category"
-        data = pd.DataFrame({"x": [1, 2, 3], "y": [4, 5, 6], "category": ["A", "B", "A"]})
-        result = self.plotter.ShowPlot(x = x, y= y, data =data, hue=hue)   
+        df = DataFusion()
+        df.DataLoad()
+        result = self.plotter.ShowPlot(x="Celsius", data=df.ExResultDataSet, hue="Sensor")   
         self.assertTrue(result)
 
         
