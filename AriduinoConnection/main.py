@@ -1,3 +1,5 @@
+import util
+
 ERROR = -1
 
 def IsError(data1, data2, data3, data4):
@@ -13,7 +15,7 @@ import time
 # MUST MODIFY BEFORE EXPRIMENT!!!! ###########
 ##############################################
 ##############################################
-ser = serial.Serial('COM4', 9600)           ##
+ser = serial.Serial('COM3', 9600)           ##
 experimentSetNumbering = 20                 ## 
 ###########################################
 
@@ -34,7 +36,7 @@ while True:
             continue
 
         dataSet.DataAppend(wireSensorName, wireSensorResult, dht11SensorName, dht11SensorResult)
-        if (wireSensorResult <= 20):
+        if (dht11SensorResult <= 20):
             break
     time.sleep(0.25) 
     
